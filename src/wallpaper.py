@@ -29,7 +29,17 @@ class WallHaven:
         with open("wallpaper.png", "wb") as f:
             f.write(requests.get(url=names[0], headers=self.headers, timeout=30).content)
 
-wallhaven = WallHaven()
-wallhaven.download_image(wallhaven.get_wallpaper()[random.randint(0, len(wallhaven.get_wallpaper()) - 1)])
-print("SUCCESSFUL")
+if __name__ == "__main__":
+    print(r"""
+   __    _   _____   ___  __  __    _  __  __
+  /__\  /_\ / _  /  /___\/__\/ _\  /_\ \ \/ /
+ / \// //_\\\// /  //  // \//\ \  //_\\ \  / 
+/ _  \/  _  \/ //\/ \_// _  \_\ \/  _  \/  \ 
+\/ \_/\_/ \_/____/\___/\/ \_/\__/\_/ \_/_/\_\
+                                             
+""")
+    
+    wallhaven = WallHaven()
+    wallhaven.download_image(wallhaven.get_wallpaper()[random.randint(0, len(wallhaven.get_wallpaper()) - 1)])
+    print("SUCCESSFUL")
 
