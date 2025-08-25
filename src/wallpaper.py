@@ -10,7 +10,8 @@ class WallHaven:
         }
 
     def get_page(self, url):
-        page = requests.get(url, headers=self.headers, timeout=10000).content.decode("utf-8")
+        requests.packages.urllib3.disable_warnings()
+        page = requests.get(url, headers=self.headers, timeout=10000, verify=False).content.decode("utf-8")
         return page
 
     def get_wallpaper(self):
