@@ -19,6 +19,7 @@ class WallHaven:
         return wallpaper_list
     
     def download_image(self, wallpaper):
+        print("GETTING..." + wallpaper)
         html = etree.HTML(self.get_page(wallpaper))
         names = html.xpath("//div[@class=\"scrollbox\"]//img/@src")
         with open("wallpaper.png", "wb") as f:
@@ -26,5 +27,5 @@ class WallHaven:
 
 wallhaven = WallHaven()
 wallhaven.download_image(wallhaven.get_wallpaper()[random.randint(0, len(wallhaven.get_wallpaper()) - 1)])
-
+print("SUCCESSFUL")
 
