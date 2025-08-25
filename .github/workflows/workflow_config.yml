@@ -1,0 +1,16 @@
+name: wallhaven-worker
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 0 * * *'
+jobs:
+    run-python-script:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v2
+              with:
+                  python-version: '3.13.4'
+            - run: pip install requests
+            - run: pip install lxml
+            - run: python src/wallpaper.py
